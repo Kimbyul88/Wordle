@@ -1,19 +1,28 @@
 header {
+  position: relative;
   width: 100vw;
   height: 40px;
   border-bottom: 1.5px solid RGB(211, 214, 218);
 }
 .info-bar {
+  transform: translate(0px, -5px);
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 .center {
+  position: absolute;
+  top: 5px;
+  left: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
   flex-grow: 1;
+  transform: translate(-65%, 0);
+}
+.center div {
+  width: 100px;
 }
 .left {
   display: flex;
@@ -23,7 +32,7 @@ header {
 }
 
 .left img {
-  width: 20px;
+  width: 25px;
 }
 .center {
   font-size: 25px;
@@ -38,7 +47,7 @@ header {
 
 .right-icons img {
   margin: 2px;
-  width: 20px;
+  width: 25px;
 }
 
 .right-subs {
