@@ -19,6 +19,7 @@ footer {
   border-radius: 5px;
   background-color: RGB(211, 214, 218);
   font-weight: 700;
+  cursor: pointer;
 }
 
 .key-block__ex {
@@ -32,6 +33,7 @@ footer {
   font-size: 15px;
   border-radius: 5px;
   background-color: RGB(211, 214, 218);
+  cursor: pointer;
 }
 
 .key-block__ex img {

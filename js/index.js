@@ -50,13 +50,16 @@ function appStart() {
         맞은개수++;
         key.style.background = "RGB(106, 170, 100)";
         block.style.background = "RGB(106, 170, 100)";
+        block.style.border = "3px solid RGB(106, 170, 100)";
       } else if (정답.includes(입력한글자)) {
         block.style.background = "RGB(201, 180, 88)";
+        block.style.border = "3px solid RGB(201, 180, 88)";
         if (key.style.background !== "rgb(106, 170, 100)") {
           key.style.background = "RGB(201, 180, 88)";
         }
       } else {
         block.style.background = "RGB(120,124,126)";
+        block.style.border = "3px solid RGB(120,124,126)";
         key.style.background = "RGB(120,124,126)";
       }
       block.style.color = "white";
