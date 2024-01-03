@@ -3,6 +3,16 @@ let attempts = 0;
 let timer;
 
 function appStart() {
+  let Ani = class {
+    constructor(block) {
+      this.block = block;
+    }
+    move() {
+      console.log(this.block);
+      this.block.classList.add("board-block_animation");
+    }
+  };
+
   const handleBackspace = () => {
     if (index > 0) {
       const preBlock = document.querySelector(
@@ -16,8 +26,16 @@ function appStart() {
     const div = document.createElement("div");
     div.innerText = "게임이 종료됐습니다.";
     div.style =
-      "display:flex; justify-content:center; align-items:center;position:absolute;top:40vh;left:50%;transform:translate(-50%,0%);width:200px;height:100px;background-color:tomato;font-weight:bold;";
+      "display:flex; justify-content:center; align-items:center;position:absolute;top:60%;left:50%;transform:translate(-50%,0%);width:200px;height:100px;background-color:tomato;font-weight:bold;";
     document.body.appendChild(div);
+  };
+  const animation = (정답배열) => {
+    for (let i = 0; i < 5; i++) {
+      console.log("정답배열" + 정답배열 + "//");
+      //배열의 요소는 document.querySelector(`.board-block[data-index='${attempts}${i}']`);
+      const 애니메이션 = new Ani(정답배열[i]);
+      애니메이션.move();
+    }
   };
   const gameOver = () => {
     displayGameover();
@@ -37,7 +55,7 @@ function appStart() {
     const 응답 = await fetch("/answer");
     const 정답_객체 = await 응답.json();
     const 정답 = 정답_객체.answer;
-
+    const 정답배열 = [];
     for (let i = 0; i < 5; i++) {
       const block = document.querySelector(
         `.board-block[data-index='${attempts}${i}']`
@@ -53,6 +71,7 @@ function appStart() {
         key.style.background = "RGB(106, 170, 100)";
         block.style.background = "RGB(106, 170, 100)";
         block.style.border = "3px solid RGB(106, 170, 100)";
+        정답배열.push(block);
       } else if (정답.includes(입력한글자)) {
         block.style.background = "RGB(201, 180, 88)";
         block.style.border = "3px solid RGB(201, 180, 88)";
@@ -67,7 +86,11 @@ function appStart() {
       block.style.color = "white";
       key.style.color = "white";
     }
-    if (맞은개수 === 5) gameOver();
+    if (맞은개수 === 5) {
+      animation(정답배열);
+      gameOver();
+    }
+    정답배열.splice(0, 5);
     nextLine();
   };
 

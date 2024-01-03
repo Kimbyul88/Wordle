@@ -24,3 +24,23 @@ main {
   width: 60px;
   height: 60px;
 }
+
+.board-block_animation {
+  animation: 2s block-fly ease-in-out !important;
+}
+
+@keyframes block-fly {
+  0% {
+    background-color: blue;
+    transform: translateY(0px);
+  }
+  30% {
+    transform: translateY(-10px);
+  }
+  70% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
